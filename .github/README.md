@@ -48,31 +48,48 @@
 </h3>
 
 - Get your [Necessary Variables](https://github.com/saregamamusic/SaregamaMusic/blob/master/sample.env)
-- Upgrade and Update by :
-`sudo apt-get update && sudo apt-get upgrade -y`
-- Install Ffmpeg by :
-`sudo apt-get install python3-pip ffmpeg -y`
-- Install required packages by :
-`sudo apt-get install python3-pip -y`
-- Install pip by :
-`sudo pip3 install -U pip`
-- Install Node js by :
-`curl -fssL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt-get install nodejs -y && npm i -g npm`
-- Clone the repository by :
-`git clone https://github.com/saregamamusic/SaregamaMusic && cd `
-- Install requirements by :
-`pip3 install -U -r requirements.txt`
-- Fill your variables in the env by :
-`vi sample.env`<br>
-Press `I` on the keyboard for editing env<br>
-Press `Ctrl+C` when you're done with editing env and `:wq` to save the env<br>
-- Rename the env file by :
-`mv sample.env .env`
-- Install tmux to keep running your bot when you close the terminal by :
-`sudo apt install tmux && tmux`
-- Finally run the bot by :
-`bash start`
-- For getting out from tmux session : Press `Ctrl+b` and then `d`<br>
+  ---
+
+## Quick Setup
+
+1. Upgrade and update packages:
+   ```bash
+   sudo apt-get update && sudo apt-get upgrade -y
+   ```
+2. Install required packages:
+   ```bash
+   sudo apt-get install python3-pip ffmpeg -y
+   ```
+3. Upgrade `pip`:
+   ```bash
+   sudo pip3 install -U pip
+   ```
+4. Install Node.js:
+   ```bash
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash && source ~/.bashrc && nvm install v18
+   ```
+5. Clone the repository:
+   ```bash
+   git clone https://github.com/SkyBotsDeveloper/Meco-Music && cd Meco-Music
+   ```
+6. Install requirements:
+   ```bash
+   pip3 install -U -r requirements.txt
+   ```
+7. Edit environment variables:
+   ```bash
+   nano .env
+   ```
+8. Optional: run inside `tmux`:
+   ```bash
+   sudo apt install tmux -y && tmux
+   ```
+9. Start the bot:
+   ```bash
+   bash start
+   ```
+
+---
 ━━━━━━━━━━━━━━━━━━━━
 ### Contact :
 <a href="https://telegram.me/MrRockyTg"><img title="Telegram" src="https://img.shields.io/badge/Telegram-%23000000.svg?&style=for-the-badge&logo=telegram&logoColor=61DAFB"></a>
