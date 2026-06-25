@@ -62,7 +62,7 @@ thumb = Thumbnail()
 
 from auro.core.calls import TgCall
 
-Kartik = TgCall()
+auro = TgCall()
 
 
 async def stop() -> None:
