@@ -3,7 +3,7 @@
 
 </h2>
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=𝗪𝗘𝗟𝗖𝗢𝗠𝗘+𝗧𝗢+𝗧𝗘𝗔𝗠+𝗔𝗨𝗥𝗢+𝗥𝗘𝗣𝗢+:+𝗧𝗛𝗜𝗦+𝗜𝗦+𝗔+𝗔𝗗𝗩𝗔𝗡𝗖𝗘+𝗠𝗨𝗦𝗜𝗖+𝗕𝗢𝗧:𝗣𝗢𝗪𝗘𝗥𝗘𝗗+𝗕𝗬+☞+⏤͟͞ 𝙍𝙊𝘾𝙆𝙔 ༗↝🍷)
+![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=𝚆𝙴𝙻𝙲𝙾𝙼𝙴+𝚃𝙾+𝚂𝙰𝚁𝙴𝙶𝙰𝙼𝙰+𝙼𝚄𝚂𝙸𝙲+𝚁𝙴𝙿𝙾+:+𝚃𝙷𝙸𝚂+𝙸𝚂+𝙰+𝙰𝙳𝚅𝙰𝙽𝙲𝙴+𝙼𝚄𝚂𝙸𝙲+𝙱𝙾𝚃;𝙿𝙾𝚆𝙴𝚁𝙴𝙳+𝙱𝚈+☞+𝗧𝗘𝗔𝗠+𝗥𝗢𝗖𝗞𝗬 )
 
 
 
