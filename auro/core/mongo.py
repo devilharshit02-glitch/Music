@@ -115,54 +115,39 @@ class MongoDB:
             )
 
     # ASSISTANT METHODS
-        async def set_assistant(self, chat_id: int) -> int:
-           num = randint(1, max(1, len(userbot.clients)))
-           await self.assistantdb.update_one(
-             {"_id": chat_id},
-             {"$set": {"num": num}},
-             upsert=True,
-          )
-          self.assistant[chat_id] = num
-          return num
+    async def set_assistant(self, chat_id: int) -> int:
+        num = randint(1, len(userbot.clients))
+        await self.assistantdb.update_one(
+            {"_id": chat_id},
+            {"$set": {"num": num}},
+            upsert=True,
+        )
+        self.assistant[chat_id] = num
+        return num
 
     async def get_assistant(self, chat_id: int):
         from auro import auro
-
-        if not auro.clients:
-            return None
 
         if chat_id not in self.assistant:
             doc = await self.assistantdb.find_one({"_id": chat_id})
             num = doc["num"] if doc else None
 
-            if not num or num > len(auro.clients):
-                num = 1
-
+            if not num or num > len(Kartik.clients):
+                num = await self.set_assistant(chat_id)
             self.assistant[chat_id] = num
 
-        num = self.assistant[chat_id]
-
-        if num < 1 or num > len(auro.clients):
-            num = 1
-            self.assistant[chat_id] = 1
-
-        return auro.clients[num - 1]
+        return Kartik.clients[self.assistant[chat_id] - 1]
 
     async def get_client(self, chat_id: int):
         if chat_id not in self.assistant:
             await self.get_assistant(chat_id)
 
-        num = self.assistant.get(chat_id, 1)
+        num = self.assistant[chat_id]
+        if num > len(userbot.clients):
+            num = await self.set_assistant(chat_id)
+            self.assistant[chat_id] = num
 
-        if num < 1 or num > len(userbot.clients):
-            num = 1
-            self.assistant[chat_id] = 1
-
-        return {
-            1: userbot.one,
-            2: userbot.two,
-            3: userbot.three,
-        }.get(num, userbot.one)
+        return {1: userbot.one, 2: userbot.two, 3: userbot.three}.get(num)
 
     # BLACKLIST METHODS
     async def add_blacklist(self, chat_id: int) -> None:
