@@ -116,14 +116,14 @@ class MongoDB:
 
     # ASSISTANT METHODS
         async def set_assistant(self, chat_id: int) -> int:
-        num = randint(1, max(1, len(userbot.clients)))
-        await self.assistantdb.update_one(
-            {"_id": chat_id},
-            {"$set": {"num": num}},
-            upsert=True,
-        )
-        self.assistant[chat_id] = num
-        return num
+           num = randint(1, max(1, len(userbot.clients)))
+           await self.assistantdb.update_one(
+             {"_id": chat_id},
+             {"$set": {"num": num}},
+             upsert=True,
+          )
+          self.assistant[chat_id] = num
+          return num
 
     async def get_assistant(self, chat_id: int):
         from auro import auro
