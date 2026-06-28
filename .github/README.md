@@ -19,34 +19,36 @@
 <a href="https://t.me/ChaahatMusicBot-Gen"><img src="https://img.shields.io/badge/CHAHAT%20MUSIC%20Bot-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a>
 
 
-<h3 align="center">
-    ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʜᴇʀᴏᴋᴜ 」─
 
-<h3> 𝗛𝗘𝗥𝗢𝗞𝗨 𝗗𝗘𝗣𝗟𝗢𝗬𝗠𝗘𝗡𝗧 𝗕𝗨𝗧𝗧𝗢𝗡 </h3>
-</h3>
+<div align="center">
 
+## 〔 🚀 Deployment 〕
 
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/rockyxd3/Auro"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-green?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+</div>
 
+<br/>
 
+### ☁️ &nbsp; Deploy on Heroku
 
-<p align="center">
-<a href="https://telegram.me/MrRockytg"><img src="https://img.shields.io/badge/-☆𝐃𝐌 𝐓𝐎 𝐌𝐑 𝐑𝐎𝐂𝐊𝐘%20☆-blue.svg?style=for-the-badge&logo=Telegram"></a>
-</p>
-<p align="center">
-<a href="https://t.me/teamauro"><img src="https://img.shields.io/badge/-𝐔𝐏𝐃𝐀𝐓𝐄%20-blue.svg?style=for-the-badge&logo=Telegram"></a>
-</p>
-<h3 align="center">
-    ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʟᴏᴄᴀʟ ʜᴏsᴛ/ ᴠᴘs 」─
-</h3>
-  ---
+<div align="center">
 
-### 🔧 Quick Setup
+<br/>
 
-<h3>✔️ Prerequisites</h3>
+> **One click. No setup. Bot is live in minutes.**
 
-- <a href="https://www.python.org">Python 3.10+</a> installed  
-- <a href="https://deno.com/">deno</a> & <a href="https://ffmpeg.org//">ffmpeg</a> installed on your system  
+<br/>
+
+[![Deploy On Heroku](https://img.shields.io/badge/━━━━━━%20🚀%20DEPLOY%20ON%20HEROKU%20━━━━━━-430098?style=for-the-badge&logo=heroku&logoColor=white)](https://dashboard.heroku.com/new?template=https://github.com/xbitcode/music)
+
+<br/>
+
+</div>
+
+---
+
+### 🖥️ &nbsp; Local / VPS Deployment
+
+<div align="center">
 - Required variables mentioned in <a href="https://github.com/rockyxd3/Auro/blob/master/sample.env">sample.env</a>
 
 1. **Upgrade & Update:**
