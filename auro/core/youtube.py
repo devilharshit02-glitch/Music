@@ -101,52 +101,162 @@ class YouTube:
             pass
         return tracks
 
-    async def download(self, video_id: str, video: bool = False) -> str | None:
-        url = self.base + video_id
-        ext = "mp4" if video else "webm"
-        filename = f"downloads/{video_id}.{ext}"
-        if Path(filename).exists():
-            return filename
-        if not video and config.API_KEY and config.API_URL:
-            if path := await self.fallen.download_track(url):
-                return path
-        cookie = self.get_cookies()
-        base_opts = {
-            "outtmpl": "downloads/%(id)s.%(ext)s",
-            "quiet": True,
-            "noplaylist": True,
-            "geo_bypass": True,
-            "no_warnings": True,
-            "overwrites": False,
-            "nocheckcertificate": True,
-            "cookiefile": cookie,
+    async def _download_audio(self, video_id: str):
+        logger.info(f"🎵 [AUDIO] Starting download process for ID: {video_id}")
+
+        path = Path(f"downloads/{video_id}.webm")
+        os.makedirs("downloads", exist_ok=True)
+
+        if path.exists():
+            logger.info(f"🎵 [LOCAL] Found existing audio for ID {video_id}")
+            return str(path)
+
+        payload = {"url": video_id, "type": "audio"}
+        headers = {
+            "Content-Type": "application/json",
+            "X-API-KEY": config.API_KEY,
         }
+
+        async with aiohttp.ClientSession() as session:
+            try:
+                async with session.post(
+                    f"{config.API_URL}/download",
+                    json=payload,
+                    headers=headers,
+                ) as response:
+                    data = await response.json(content_type=None)
+
+                if data and data.get("status") == "error":
+                    logger.error(f"[AUDIO] API ERROR → {data}")
+                    return None
+
+                retries = 10
+
+                if not data or not data.get("download_url"):
+                    logger.warning("[AUDIO] File not ready / JSON missing → retrying...")
+
+                    for i in range(retries):
+                        await asyncio.sleep(8)
+
+                        async with session.post(
+                            f"{config.API_URL}/download",
+                            json=payload,
+                            headers=headers,
+                        ) as response:
+                            data = await response.json(content_type=None)
+
+                        if data and data.get("status") == "error":
+                            logger.error(f"[AUDIO] API ERROR during retry → {data}")
+                            return None
+
+                        if data and data.get("status") == "success" and data.get("download_url"):
+                            logger.info(f"[AUDIO] Got URL after retry #{i+1}")
+                            break
+
+                        logger.warning(f"[AUDIO] Retry {i+1}/{retries} → still not ready")
+
+                if not data or not data.get("download_url"):
+                    logger.error(f"[AUDIO] FAILED after all retries → {data}")
+                    return None
+
+                download_link = config.API_URL + data["download_url"]
+
+                async with session.get(download_link) as file_response:
+                    if file_response.status != 200:
+                        logger.error(f"[AUDIO] Download failed → {file_response.status}")
+                        return None
+
+                    with open(path, "wb") as f:
+                        async for chunk in file_response.content.iter_chunked(8192):
+                            f.write(chunk)
+
+                logger.info(f"🎵 [API] Audio download completed for {video_id}")
+                return str(path)
+
+            except Exception as e:
+                logger.error(f"[AUDIO] Exception: {e}")
+                return None
+
+    async def _download_video(self, video_id: str):
+        logger.info(f"🎥 [VIDEO] Starting download process for ID: {video_id}")
+
+        path = Path(f"downloads/{video_id}.mkv")
+        os.makedirs("downloads", exist_ok=True)
+
+        if path.exists():
+            logger.info(f"🎥 [LOCAL] Found existing video for ID {video_id}")
+            return str(path)
+
+        payload = {"url": video_id, "type": "video"}
+        headers = {
+            "Content-Type": "application/json",
+            "X-API-KEY": config.API_KEY,
+        }
+
+        async with aiohttp.ClientSession() as session:
+            try:
+                async with session.post(
+                    f"{config.API_URL}/download",
+                    json=payload,
+                    headers=headers,
+                ) as response:
+                    data = await response.json(content_type=None)
+
+                if data and data.get("status") == "error":
+                    logger.error(f"[VIDEO] API ERROR → {data}")
+                    return None
+
+                retries = 20
+
+                if not data or not data.get("download_url"):
+                    logger.warning("[VIDEO] File not ready / JSON missing → retrying...")
+
+                    for i in range(retries):
+                        await asyncio.sleep(20)
+
+                        async with session.post(
+                            f"{config.API_URL}/download",
+                            json=payload,
+                            headers=headers,
+                        ) as response:
+                            data = await response.json(content_type=None)
+
+                        if data and data.get("status") == "error":
+                            logger.error(f"[VIDEO] API ERROR during retry → {data}")
+                            return None
+
+                        if data and data.get("status") == "success" and data.get("download_url"):
+                            logger.info(f"[VIDEO] Got URL after retry #{i+1}")
+                            break
+
+                        logger.warning(f"[VIDEO] Retry {i+1}/{retries} → still not ready")
+
+                if not data or not data.get("download_url"):
+                    logger.error(f"[VIDEO] FAILED after all retries → {data}")
+                    return None
+
+                download_link = config.API_URL + data["download_url"]
+
+                async with session.get(download_link) as file_response:
+                    if file_response.status != 200:
+                        logger.error(f"[VIDEO] Download failed → {file_response.status}")
+                        return None
+
+                    with open(path, "wb") as f:
+                        async for chunk in file_response.content.iter_chunked(8192):
+                            f.write(chunk)
+
+                logger.info(f"🎥 [API] Video download completed for {video_id}")
+                return str(path)
+
+            except Exception as e:
+                logger.error(f"[VIDEO] Exception: {e}")
+                return None
+
+    async def download(self, video_id: str, video: bool = False):
         if video:
-            ydl_opts = {
-                **base_opts,
-                "format": "(bestvideo[height<=?720][width<=?1280][ext=mp4])+(bestaudio)",
-                "merge_output_format": "mp4",
-            }
-        else:
-            ydl_opts = {
-                **base_opts,
-                "format": "bestaudio[ext=webm][acodec=opus]",
-            }
-
-        def _download():
-            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                try:
-                    ydl.download([url])
-                except (yt_dlp.utils.DownloadError, yt_dlp.utils.ExtractorError):
-                    if cookie:
-                        self.cookies.remove(cookie)
-                    return None
-                except Exception as ex:
-                    logger.warning("Download failed: %s", ex)
-                    return None
-            return filename
-
-        return await asyncio.to_thread(_download)
+            return await self._download_video(video_id)
+        return await self._download_audio(video_id)
 
     async def close(self):
         await self.fallen.close()
