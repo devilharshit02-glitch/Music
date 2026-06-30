@@ -44,7 +44,7 @@ async def _controls(_, query: types.CallbackQuery):
             return await query.answer(
                 query.lang["play_already_paused"], show_alert=True
             )
-        await Kartik.pause(chat_id)
+        await auro.pause(chat_id)
         if qaction:
             return await query.edit_message_reply_markup(
                 reply_markup=buttons.queue_markup(chat_id, query.lang["paused"], False)
