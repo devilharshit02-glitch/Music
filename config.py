@@ -59,13 +59,13 @@ class Config:
         missing = [
             var
             for var in [
-                "API_ID",
-                "API_HASH",
-                "BOT_TOKEN",
-                "MONGO_URL",
-                "LOGGER_ID",
-                "OWNER_ID",
-                "SESSION1",
+                "38169419",
+                "45141a2ea2482b07d9d5d5ecb5121be0",
+                "8974001322:AAEsYd7zc5T0qmMCN8YG1ZP0mw-lCGBoMxE",
+                "mongodb+srv://devilediting994:devilediting994@cluster0.tavhuwl.mongodb.net/?appName=Cluster0",
+                "-5501438346",
+                "5385377266",
+                "AQIBIGIAbKYvtrFPGyOqm8tEqyA2yA2JKa8s5GwLltjDiUK5pgEZJHY_SPJiROJWrpiu2OGE4Dt34VAoR6UC9mvQcAuUBqZGyw9wblif4_MvtDaLtu5XdGfIW5DbPslzzIMj8LtI9a7Je7hiuDdHgvME6YvQ-jRsIXS91yecYT_LMHH18lU1EfLB8ICGPXtvXCsWnwHxa2WFtP8iR-oSpiGbfWEwnFJcfx_SXg8pB5J-RBSjGG82GxTUytbk6i20ZTCr3O8PYF6Un4am8XgXYCX0R2Z4jem9ndGAHK4NTllPbNpzjulpLHwf9IwLaOXqpbfeokKkS6j1W0L2skdL_uX7EiOtHgAAAAH67a3BAA",
             ]
             if not getattr(self, var)
         ]
