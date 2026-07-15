@@ -55,21 +55,21 @@ class Config:
             "https://graph.org/file/ad15e8b2f052e78256339-0c87eb7568d3e947e7.mp4",
         )
 
-    def check(self):
-    missing = [
-        var
-        for var in [
-            "API_ID",
-            "API_HASH",
-            "BOT_TOKEN",
-            "MONGO_URL",
-            "LOGGER_ID",
-            "OWNER_ID",
-            "SESSION1",
+        def check(self):
+         missing = [
+            var
+            for var in [
+                "API_ID",
+                "API_HASH",
+                "BOT_TOKEN",
+                "MONGO_URL",
+                "LOGGER_ID",
+                "OWNER_ID",
+                "SESSION1",
+            ]
+            if not getattr(self, var)
         ]
-        if not getattr(self, var)
-    ]
-    if missing:
-        raise SystemExit(
-            f"Missing required environment variables: {', '.join(missing)}"
-        )
+        if missing:
+            raise SystemExit(
+                f"Missing required environment variables: {', '.join(missing)}"
+            )
