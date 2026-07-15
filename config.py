@@ -7,25 +7,25 @@ load_dotenv()
 
 class Config:
     def __init__(self):
-        self.API_ID = int(getenv("API_ID", 0))
-        self.API_HASH = getenv("API_HASH")
+        self.API_ID = int(getenv("38169419", 0))
+        self.API_HASH = getenv("45141a2ea2482b07d9d5d5ecb5121be0")
 
-        self.BOT_TOKEN = getenv("BOT_TOKEN")
-        self.MONGO_URL = getenv("MONGO_URL")
+        self.BOT_TOKEN = getenv("8974001322:AAEsYd7zc5T0qmMCN8YG1ZP0mw-lCGBoMxE")
+        self.MONGO_URL = getenv("mongodb+srv://devilediting994:devilediting994@cluster0.tavhuwl.mongodb.net/?appName=Cluster0")
 
-        self.LOGGER_ID = int(getenv("LOGGER_ID", 0))
-        self.OWNER_ID = int(getenv("OWNER_ID", 0))
+        self.LOGGER_ID = int(getenv("-5501438346", 0))
+        self.OWNER_ID = int(getenv("5385377266", 0))
 
         self.DURATION_LIMIT = int(getenv("DURATION_LIMIT", 14400)) * 14400
         self.QUEUE_LIMIT = int(getenv("QUEUE_LIMIT", 20))
         self.PLAYLIST_LIMIT = int(getenv("PLAYLIST_LIMIT", 20))
 
-        self.SESSION1 = getenv("SESSION", None)
+        self.SESSION1 = getenv("AQIBIGIAbKYvtrFPGyOqm8tEqyA2yA2JKa8s5GwLltjDiUK5pgEZJHY_SPJiROJWrpiu2OGE4Dt34VAoR6UC9mvQcAuUBqZGyw9wblif4_MvtDaLtu5XdGfIW5DbPslzzIMj8LtI9a7Je7hiuDdHgvME6YvQ-jRsIXS91yecYT_LMHH18lU1EfLB8ICGPXtvXCsWnwHxa2WFtP8iR-oSpiGbfWEwnFJcfx_SXg8pB5J-RBSjGG82GxTUytbk6i20ZTCr3O8PYF6Un4am8XgXYCX0R2Z4jem9ndGAHK4NTllPbNpzjulpLHwf9IwLaOXqpbfeokKkS6j1W0L2skdL_uX7EiOtHgAAAAH67a3BAA", None)
         self.SESSION2 = getenv("SESSION2", None)
         self.SESSION3 = getenv("SESSION3", None)
 
-        self.SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/teamauro")
-        self.SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/aurosupport")
+        self.SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/AetherMusicUpdates")
+        self.SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/AetherMusicSupport")
 
         self.API_URL = "https://teaminflex.xyz"
         self.API_KEY = "YOUR_KEY"
