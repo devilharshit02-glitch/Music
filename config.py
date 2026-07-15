@@ -56,7 +56,7 @@ class Config:
         )
 
         def check(self):
-    missing = [
+           missing = [
         var
         for var in [
             "API_ID",
