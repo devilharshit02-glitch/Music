@@ -20,7 +20,7 @@ class Config:
         self.QUEUE_LIMIT = int(getenv("QUEUE_LIMIT", 20))
         self.PLAYLIST_LIMIT = int(getenv("PLAYLIST_LIMIT", 20))
 
-        self.SESSION1 = getenv("AQIBIGIAbKYvtrFPGyOqm8tEqyA2yA2JKa8s5GwLltjDiUK5pgEZJHY_SPJiROJWrpiu2OGE4Dt34VAoR6UC9mvQcAuUBqZGyw9wblif4_MvtDaLtu5XdGfIW5DbPslzzIMj8LtI9a7Je7hiuDdHgvME6YvQ-jRsIXS91yecYT_LMHH18lU1EfLB8ICGPXtvXCsWnwHxa2WFtP8iR-oSpiGbfWEwnFJcfx_SXg8pB5J-RBSjGG82GxTUytbk6i20ZTCr3O8PYF6Un4am8XgXYCX0R2Z4jem9ndGAHK4NTllPbNpzjulpLHwf9IwLaOXqpbfeokKkS6j1W0L2skdL_uX7EiOtHgAAAAH67a3BAA", None)
+        self.SESSION1 = getenv("BQJGa0sALcrcjw28mIQglBHZAmFIg8AIrJwXYWbgt0vRANdFEwJBO_gtPW2KBYgFe5nNI8E4T0Mpi7cbtU7qg-KaklCipifkMkPS-MsKunQQIwQkSVivrrpVu6PwUX2bGnrgtSw8OxdKZLj2C8RjavBtzDglzM_pX5SXD5W4QqQmVDbA3gXSQfXX8eQpsRo1c8GY9CiX2xICsGydNF8fNDxUq1t6hldqz0XnMUvuBn8e6_ID58UfDm8_g4cRLyRueiMKLApYP1Txui2YjIaGrdlkv6fE9DeB5B4rGYLnNgQ_N9CPt_lQv0NSn0rrHkqao43fVYLr01wbCBnLNVfykrrtcvleTwAAAAGMdB-OAA", None)
         self.SESSION2 = getenv("SESSION2", None)
         self.SESSION3 = getenv("SESSION3", None)
 
@@ -65,7 +65,7 @@ class Config:
                 "mongodb+srv://devilediting994:devilediting994@cluster0.tavhuwl.mongodb.net/?appName=Cluster0",
                 "-5501438346",
                 "5385377266",
-                "AQIBIGIAbKYvtrFPGyOqm8tEqyA2yA2JKa8s5GwLltjDiUK5pgEZJHY_SPJiROJWrpiu2OGE4Dt34VAoR6UC9mvQcAuUBqZGyw9wblif4_MvtDaLtu5XdGfIW5DbPslzzIMj8LtI9a7Je7hiuDdHgvME6YvQ-jRsIXS91yecYT_LMHH18lU1EfLB8ICGPXtvXCsWnwHxa2WFtP8iR-oSpiGbfWEwnFJcfx_SXg8pB5J-RBSjGG82GxTUytbk6i20ZTCr3O8PYF6Un4am8XgXYCX0R2Z4jem9ndGAHK4NTllPbNpzjulpLHwf9IwLaOXqpbfeokKkS6j1W0L2skdL_uX7EiOtHgAAAAH67a3BAA",
+                "BQJGa0sALcrcjw28mIQglBHZAmFIg8AIrJwXYWbgt0vRANdFEwJBO_gtPW2KBYgFe5nNI8E4T0Mpi7cbtU7qg-KaklCipifkMkPS-MsKunQQIwQkSVivrrpVu6PwUX2bGnrgtSw8OxdKZLj2C8RjavBtzDglzM_pX5SXD5W4QqQmVDbA3gXSQfXX8eQpsRo1c8GY9CiX2xICsGydNF8fNDxUq1t6hldqz0XnMUvuBn8e6_ID58UfDm8_g4cRLyRueiMKLApYP1Txui2YjIaGrdlkv6fE9DeB5B4rGYLnNgQ_N9CPt_lQv0NSn0rrHkqao43fVYLr01wbCBnLNVfykrrtcvleTwAAAAGMdB-OAA",
             ]
             if not getattr(self, var)
         ]
