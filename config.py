@@ -56,20 +56,20 @@ class Config:
         )
 
     def check(self):
-        missing = [
-            var
-            for var in [
-                "38169419",
-                "45141a2ea2482b07d9d5d5ecb5121be0",
-                "8974001322:AAEsYd7zc5T0qmMCN8YG1ZP0mw-lCGBoMxE",
-                "mongodb+srv://devilediting994:devilediting994@cluster0.tavhuwl.mongodb.net/?appName=Cluster0",
-                "-5501438346",
-                "5385377266",
-                "BQJGa0sALcrcjw28mIQglBHZAmFIg8AIrJwXYWbgt0vRANdFEwJBO_gtPW2KBYgFe5nNI8E4T0Mpi7cbtU7qg-KaklCipifkMkPS-MsKunQQIwQkSVivrrpVu6PwUX2bGnrgtSw8OxdKZLj2C8RjavBtzDglzM_pX5SXD5W4QqQmVDbA3gXSQfXX8eQpsRo1c8GY9CiX2xICsGydNF8fNDxUq1t6hldqz0XnMUvuBn8e6_ID58UfDm8_g4cRLyRueiMKLApYP1Txui2YjIaGrdlkv6fE9DeB5B4rGYLnNgQ_N9CPt_lQv0NSn0rrHkqao43fVYLr01wbCBnLNVfykrrtcvleTwAAAAGMdB-OAA",
-            ]
-            if not getattr(self, var)
+    missing = [
+        var
+        for var in [
+            "API_ID",
+            "API_HASH",
+            "BOT_TOKEN",
+            "MONGO_URL",
+            "LOGGER_ID",
+            "OWNER_ID",
+            "SESSION1",
         ]
-        if missing:
-            raise SystemExit(
-                f"Missing required environment variables: {', '.join(missing)}"
-            )
+        if not getattr(self, var)
+    ]
+    if missing:
+        raise SystemExit(
+            f"Missing required environment variables: {', '.join(missing)}"
+        )
