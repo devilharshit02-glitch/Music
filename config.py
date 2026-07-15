@@ -56,20 +56,20 @@ class Config:
         )
 
         def check(self):
-         missing = [
-            var
-            for var in [
-                "API_ID",
-                "API_HASH",
-                "BOT_TOKEN",
-                "MONGO_URL",
-                "LOGGER_ID",
-                "OWNER_ID",
-                "SESSION1",
-            ]
-            if not getattr(self, var)
+    missing = [
+        var
+        for var in [
+            "API_ID",
+            "API_HASH",
+            "BOT_TOKEN",
+            "MONGO_URL",
+            "LOGGER_ID",
+            "OWNER_ID",
+            "SESSION1",
         ]
-        if missing:
-            raise SystemExit(
-                f"Missing required environment variables: {', '.join(missing)}"
-            )
+        if not getattr(self, var)
+    ]
+    if missing:
+        raise SystemExit(
+            f"Missing required environment variables: {', '.join(missing)}"
+        )
